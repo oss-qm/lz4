@@ -1,0 +1,56 @@
+.TH "lz4c" 1 "May 2013" "LZ4C" "LZ4C"
+.SH NAME
+lz4c \- Tool using Fast LZ compression algorithm library
+.SH SYNOPSIS
+.B lz4c
+[options] file ...
+.SH DESCRIPTION
+\fBLZ4\fP is a very fast lossless compression algorithm.
+This uses Dictionary compression, and only supports compression and 
+decompression unit blocks.
+.br
+
+Infomation about compression ratio and speed (from webpage of lz4):
+single thread, Core 2 Duo @3GHz, using the Open-Source Benchmark
+program by m^2 compiled with GCC v4.5.2, on the Silesia Corpus.
+.br
+
+Name            Ratio   C.speed D.speed
+.br
+LZ4 (r59)       2.084   330      915 
+.br
+LZO 2.05 1x_1   2.038   311      480 
+.br
+QuickLZ 1.5 \-1  2.233   257      277 
+.br
+Snappy 1.0.5    2.024   227      729 
+.br
+LZF             2.076   197      465 
+.br
+FastLZ          2.030   190      420 
+.br
+zlib 1.2.5 \-1   2.728    39      195 
+.br
+LZ4 HC (r66)    2.712    18     1020
+.br
+zlib 1.2.5 \-6   3.095    14      210
+.br
+.SH OPTIONS:
+.TP
+.B \\-H
+Help (this text + advanced options)
+.TP
+.B \\-c0/\\-c
+Fast compression (default)
+.TP
+.B \\-c1/\\-hc
+\-c1/\-hc: High compression
+.TP
+.B \\-d
+decompression
+.TP
+.B \\-y
+overwrite without prompting
+.SH AUTHOR
+This manual page was written by Nobuhiro Iwamatsu <iwamatsu@debian.org>
+for the Debian GNU/Linux system (but may be used by others).

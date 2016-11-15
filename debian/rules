@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+CPPFLAGS:= $(shell dpkg-buildflags --get CPPFLAGS)
+CFLAGS:= $(shell dpkg-buildflags --get CFLAGS) $(CPPFLAGS)
+CXXFLAGS:= $(shell dpkg-buildflags --get CXXFLAGS) $(CPPFLAGS)
+LDFLAGS:= $(shell dpkg-buildflags --get LDFLAGS)
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+DEB_HOST_ARCH_BITS ?= $(shell dpkg-architecture -qDEB_HOST_ARCH_BITS)
+
+export CFLAGS
+export CPPFLAGS
+export LDFLAGS
+
+%:
+	dh $@
+
+override_dh_install:
+	make install DESTDIR=$$(pwd)/debian/tmp LIBDIR=$(DESTDIR)/usr/lib/$(DEB_HOST_MULTIARCH)
+	dh_install
+
+override_dh_strip:
+	dh_strip -a --dbg-package=liblz4-1-dbg
