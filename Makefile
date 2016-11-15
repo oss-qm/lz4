@@ -120,7 +120,7 @@ dist: clean
 	@echo Distribution $(DISTRIBNAME) built
 
 test:
-	@cd $(PRGDIR); $(MAKE) -e test
+#	@cd $(PRGDIR); $(MAKE) -e test
 
 test-travis: $(TRAVIS_TARGET)
 
