@@ -1,0 +1,16 @@
+*.a
+*.o
+*.pc
+*.so
+*.so.*
+
+programs/datagen
+programs/frametest
+programs/frametest32
+programs/fullbench
+programs/fullbench32
+programs/fuzzer
+programs/fuzzer32
+programs/lz4
+programs/lz4c
+programs/lz4c32
