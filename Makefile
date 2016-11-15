@@ -91,12 +91,12 @@ clean:
 ifneq (,$(filter $(shell uname),Linux Darwin GNU/kFreeBSD GNU))
 
 install:
-	@cd $(LZ4DIR); $(MAKE) -e install
-	@cd $(PRGDIR); $(MAKE) -e install
+	@$(MAKE) -C $(LZ4DIR) install
+	@$(MAKE) -C $(PRGDIR) install
 
 uninstall:
-	@cd $(LZ4DIR); $(MAKE) uninstall
-	@cd $(PRGDIR); $(MAKE) uninstall
+	@$(MAKE) -C $(LZ4DIR) uninstall
+	@$(MAKE) -C $(PRGDIR) uninstall
 
 travis-install:
 	sudo $(MAKE) install
